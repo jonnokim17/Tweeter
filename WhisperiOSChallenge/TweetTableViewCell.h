@@ -11,5 +11,6 @@
 @interface TweetTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *tweetLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

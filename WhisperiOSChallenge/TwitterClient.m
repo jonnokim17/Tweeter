@@ -24,8 +24,6 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
             instance = [[TwitterClient alloc] initWithBaseURL:[NSURL URLWithString:kTwitterBaseURL]
                                                   consumerKey:kTwitterConsumerKey
                                                consumerSecret:kTwitterConsumerSecret];
-
-            
         }
     });
 

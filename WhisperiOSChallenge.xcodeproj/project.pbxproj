@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		90AB2F9F1A7606500029A450 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AB2F9E1A7606500029A450 /* TweetTableViewCell.m */; };
+		90C63CCA1A7713B400B2DAC8 /* SavedTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C63CC91A7713B400B2DAC8 /* SavedTweetsViewController.m */; };
+		90C63CCD1A77143D00B2DAC8 /* SavedTweetsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C63CCC1A77143D00B2DAC8 /* SavedTweetsTableViewCell.m */; };
 		90C958241A75A52C00BE83B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C958231A75A52C00BE83B2 /* main.m */; };
 		90C958271A75A52C00BE83B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C958261A75A52C00BE83B2 /* AppDelegate.m */; };
 		90C9582A1A75A52C00BE83B2 /* WhisperiOSChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90C958281A75A52C00BE83B2 /* WhisperiOSChallenge.xcdatamodeld */; };
@@ -37,6 +39,10 @@
 		6BFF2089512A45BF2EC36E2D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90AB2F9D1A7606500029A450 /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
 		90AB2F9E1A7606500029A450 /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
+		90C63CC81A7713B400B2DAC8 /* SavedTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedTweetsViewController.h; sourceTree = "<group>"; };
+		90C63CC91A7713B400B2DAC8 /* SavedTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedTweetsViewController.m; sourceTree = "<group>"; };
+		90C63CCB1A77143D00B2DAC8 /* SavedTweetsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedTweetsTableViewCell.h; sourceTree = "<group>"; };
+		90C63CCC1A77143D00B2DAC8 /* SavedTweetsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedTweetsTableViewCell.m; sourceTree = "<group>"; };
 		90C9581E1A75A52C00BE83B2 /* WhisperiOSChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhisperiOSChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C958221A75A52C00BE83B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90C958231A75A52C00BE83B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +90,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		90C63CCE1A77182E00B2DAC8 /* Custom Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				90AB2F9D1A7606500029A450 /* TweetTableViewCell.h */,
+				90AB2F9E1A7606500029A450 /* TweetTableViewCell.m */,
+				90C63CCB1A77143D00B2DAC8 /* SavedTweetsTableViewCell.h */,
+				90C63CCC1A77143D00B2DAC8 /* SavedTweetsTableViewCell.m */,
+			);
+			name = "Custom Table View Cells";
+			sourceTree = "<group>";
+		};
 		90C958151A75A52C00BE83B2 = {
 			isa = PBXGroup;
 			children = (
@@ -111,13 +128,14 @@
 				90C958261A75A52C00BE83B2 /* AppDelegate.m */,
 				90C9582B1A75A52C00BE83B2 /* RootViewController.h */,
 				90C9582C1A75A52C00BE83B2 /* RootViewController.m */,
-				90AB2F9D1A7606500029A450 /* TweetTableViewCell.h */,
-				90AB2F9E1A7606500029A450 /* TweetTableViewCell.m */,
+				90C63CC81A7713B400B2DAC8 /* SavedTweetsViewController.h */,
+				90C63CC91A7713B400B2DAC8 /* SavedTweetsViewController.m */,
+				90C958641A75A70A00BE83B2 /* Model */,
+				90C63CCE1A77182E00B2DAC8 /* Custom Table View Cells */,
 				90C9582E1A75A52C00BE83B2 /* Main.storyboard */,
 				90C958311A75A52C00BE83B2 /* Images.xcassets */,
 				90C958331A75A52C00BE83B2 /* LaunchScreen.xib */,
 				90C958281A75A52C00BE83B2 /* WhisperiOSChallenge.xcdatamodeld */,
-				90C958641A75A70A00BE83B2 /* Model */,
 				90C958211A75A52C00BE83B2 /* Supporting Files */,
 			);
 			path = WhisperiOSChallenge;
@@ -304,10 +322,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C63CCD1A77143D00B2DAC8 /* SavedTweetsTableViewCell.m in Sources */,
 				90C958271A75A52C00BE83B2 /* AppDelegate.m in Sources */,
 				90C9582A1A75A52C00BE83B2 /* WhisperiOSChallenge.xcdatamodeld in Sources */,
 				90C958671A75A76000BE83B2 /* TwitterClient.m in Sources */,
 				90C9586D1A75C12A00BE83B2 /* Tweet.m in Sources */,
+				90C63CCA1A7713B400B2DAC8 /* SavedTweetsViewController.m in Sources */,
 				90AB2F9F1A7606500029A450 /* TweetTableViewCell.m in Sources */,
 				90C9582D1A75A52C00BE83B2 /* RootViewController.m in Sources */,
 				90C958241A75A52C00BE83B2 /* main.m in Sources */,

@@ -13,25 +13,7 @@
 @implementation Tweet
 
 @dynamic text;
-@dynamic createdAt;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-{
-    self = [super init];
-
-    if (self)
-    {
-        self.text = dictionary[@"text"];
-
-        NSString *createdAtString = dictionary[@"created_at"];
-        NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
-        formattter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
-
-        self.createdAt = [formattter dateFromString:createdAtString];
-    }
-
-    return self;
-}
+//@dynamic createdAt;
 
 + (void)getSearchResults:(NSManagedObjectContext *)moc withSearchString:(NSString *)searchString withCompletion:(void(^)(NSArray *))complete
 {
@@ -41,20 +23,12 @@
                                     NSLog(@"search successful");
 
                                     NSArray *statusesArray = responseObject[@"statuses"];
-
                                     NSMutableArray *searchTweetsArray = [@[] mutableCopy];
-
-                                    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tweet" inManagedObjectContext:moc];
-
-                                    Tweet *tweet = [[Tweet alloc] initWithEntity:entityDescription
-                                                  insertIntoManagedObjectContext:moc];
 
                                     for (NSDictionary *dict in statusesArray)
                                     {
-                                        tweet.text = dict[@"text"];
-
-                                        [searchTweetsArray addObject:tweet.text];
-
+                                        NSString *text = dict[@"text"];
+                                        [searchTweetsArray addObject:text];
                                     }
                                     complete(searchTweetsArray);
 

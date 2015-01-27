@@ -20,7 +20,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OhV-sL-8Ri">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="uW5-Z5-WdA">
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Tweet" id="uW5-Z5-WdA">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -35,15 +35,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pNY-3D-GvW" id="LK3-FG-NkB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibB-sd-7iV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibB-sd-7iV">
                                                     <rect key="frame" x="8" y="8" width="304" height="64"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ibB-sd-7iV" firstAttribute="bottom" secondItem="LK3-FG-NkB" secondAttribute="bottomMargin" id="9Cu-zh-d2b"/>
+                                                <constraint firstItem="ibB-sd-7iV" firstAttribute="bottom" secondItem="LK3-FG-NkB" secondAttribute="bottomMargin" constant="0.5" id="9Cu-zh-d2b"/>
                                                 <constraint firstItem="ibB-sd-7iV" firstAttribute="trailing" secondItem="LK3-FG-NkB" secondAttribute="trailingMargin" id="GcA-MO-gFz"/>
                                                 <constraint firstItem="ibB-sd-7iV" firstAttribute="top" secondItem="LK3-FG-NkB" secondAttribute="topMargin" id="fyx-iE-c8b"/>
                                                 <constraint firstItem="ibB-sd-7iV" firstAttribute="leading" secondItem="LK3-FG-NkB" secondAttribute="leadingMargin" id="saY-LN-nhX"/>
@@ -68,7 +69,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="OhV-sL-8Ri" secondAttribute="trailing" constant="-16" id="akv-wm-SjC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweets" id="zLP-J6-L23"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="zLP-J6-L23">
+                        <barButtonItem key="rightBarButtonItem" title="Saved Tweets" id="6A8-4e-hfI">
+                            <connections>
+                                <segue destination="2F7-zd-SXn" kind="push" id="5UV-9w-cJb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="OhV-sL-8Ri" id="UM4-tj-dSO"/>
                     </connections>
@@ -76,6 +83,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="610" y="293"/>
+        </scene>
+        <!--Saved Tweets-->
+        <scene sceneID="42c-TW-xGL">
+            <objects>
+                <viewController id="2F7-zd-SXn" customClass="SavedTweetsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0bi-Ck-2Nh"/>
+                        <viewControllerLayoutGuide type="bottom" id="keS-Pq-nPu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HXu-8a-2fd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6WX-cd-NpY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="xmq-rM-WMl" customClass="SavedTweetsTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xmq-rM-WMl" id="XhL-6r-Rbp">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiU-3g-2Hg">
+                                                    <rect key="frame" x="8" y="0.0" width="304" height="72"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xiU-3g-2Hg" firstAttribute="top" secondItem="XhL-6r-Rbp" secondAttribute="topMargin" constant="-8" id="9Gy-LP-E26"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xiU-3g-2Hg" secondAttribute="bottom" constant="-0.5" id="arC-tQ-OCJ"/>
+                                                <constraint firstItem="xiU-3g-2Hg" firstAttribute="leading" secondItem="XhL-6r-Rbp" secondAttribute="leadingMargin" id="e1k-dX-eMa"/>
+                                                <constraint firstItem="xiU-3g-2Hg" firstAttribute="trailing" secondItem="XhL-6r-Rbp" secondAttribute="trailingMargin" id="m5Q-In-WNn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="savedTweetsLabel" destination="xiU-3g-2Hg" id="zw0-yB-pVj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2F7-zd-SXn" id="MEH-VE-pG3"/>
+                                    <outlet property="delegate" destination="2F7-zd-SXn" id="iOD-mn-Lpn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6WX-cd-NpY" firstAttribute="top" secondItem="HXu-8a-2fd" secondAttribute="topMargin" id="Had-B9-QxM"/>
+                            <constraint firstItem="keS-Pq-nPu" firstAttribute="top" secondItem="6WX-cd-NpY" secondAttribute="bottom" id="YUb-XP-5XC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6WX-cd-NpY" secondAttribute="trailing" constant="-16" id="YqO-Kv-1p6"/>
+                            <constraint firstItem="6WX-cd-NpY" firstAttribute="leading" secondItem="HXu-8a-2fd" secondAttribute="leadingMargin" constant="-16" id="pXG-6q-s6h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Saved Tweets" id="OpV-vD-8Se"/>
+                    <connections>
+                        <outlet property="tableView" destination="6WX-cd-NpY" id="lwG-Tf-0Pu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cyp-hk-ewO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962" y="293"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DI0-Vm-MNf">
